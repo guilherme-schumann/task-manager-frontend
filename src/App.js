@@ -1,15 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello World</h1>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const messages = ["Hello world", "Olá mundo", "Bom dia!"];
+    return (
+        <>
+            {messages.map((message) => (
+                <h1>{message}</h1>
+            ))}
+        </>
+    );
+};
 
 export default App;
