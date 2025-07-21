@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 import CustomInput from "./CustomInput";
+import CustomButton from "./CustomButton";
 
 import "./AddTask.scss";
 
@@ -10,6 +13,17 @@ const AddTask = () => {
     const onChange = (e) => {
         setTask(e.target.value);
     };
+
+    const handleTaskAddition = async () => {
+        try {
+            if (task.length === 0) {
+                return toast.error(
+                        "A tarefa precisa de uma descrição para ser adicionada"
+                );
+            }
+        } catch (error) {}
+    };
+
     return (
         <div className="add-task-container">
             <CustomInput
@@ -17,6 +31,9 @@ const AddTask = () => {
                 value={task}
                 onChange={onChange}
             />
+            <CustomButton>
+                <FaPlus size={14} color="#FFFFFF" onClick={handleTaskAddition}/>
+            </CustomButton>
         </div>
     );
 };
