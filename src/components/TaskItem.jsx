@@ -41,8 +41,8 @@ const TaskItem = ({ task, fetchTasks }) => {
                         ></span>
                     </label>
                 </div>
-                <div className="delete" onClick={handleTaskDeletion}>
-                    <MdDelete size={18} color="#F97474" />
+                <div className="delete">
+                    <MdDelete size={18} color="#F97474" onClick={handleTaskDeletion}/>
                 </div>
             </div>
         </>
