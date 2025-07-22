@@ -16,6 +16,20 @@ const TaskItem = ({ task, fetchTasks }) => {
         }
     };
 
+    const handleTaskComplitionChange = async (e) => {
+        try {
+            await axios.patch(`http://localhost:8000/tasks/${task._id}`, {
+                isCompleted: e.target.checked,
+            });
+
+            await fetchTasks();
+
+            toast.success("Status da tarefa foi atualizada com sucesso!");
+        } catch (error) {
+            toast.error("Não foi possível mudar o status da tarefa!");
+        }
+    };
+
     return (
         <>
             <div className="task-item-container">
@@ -31,6 +45,7 @@ const TaskItem = ({ task, fetchTasks }) => {
                         <input
                             type="checkbox"
                             defaultChecked={task.isCompleted}
+                            onChange={(e) => handleTaskComplitionChange(e)}
                         />
                         <span
                             className={
@@ -42,7 +57,11 @@ const TaskItem = ({ task, fetchTasks }) => {
                     </label>
                 </div>
                 <div className="delete">
-                    <MdDelete size={18} color="#F97474" onClick={handleTaskDeletion}/>
+                    <MdDelete
+                        size={18}
+                        color="#F97474"
+                        onClick={handleTaskDeletion}
+                    />
                 </div>
             </div>
         </>
