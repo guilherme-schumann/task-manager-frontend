@@ -1,10 +1,14 @@
 import { ToastContainer, Zoom } from "react-toastify";
 
+import "./App.scss";
+
 import Tasks from "./components/Tasks";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
     return (
-        <>
+        <div className="app-container">
+            <Sidebar />
             <Tasks />
             <ToastContainer
                 position="top-right"
@@ -19,7 +23,7 @@ const App = () => {
                 theme="dark"
                 transition={Zoom}
             />
-        </>
+        </div>
     );
 };
 
