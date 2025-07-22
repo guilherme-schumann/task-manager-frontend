@@ -10,7 +10,7 @@ const TaskItem = ({ task, fetchTasks }) => {
 
             await fetchTasks();
 
-            return toast.success("Tarefa excluída com sucesso!");
+            toast.success("Tarefa excluída com sucesso!");
         } catch (error) {
             toast.error("Não foi possível excluir a tarefa!");
         }
